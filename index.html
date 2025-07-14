@@ -1,9 +1,169 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Hola mundo</title>
-  </head>
-  <body>
-    <h1>¡Hola, soy mi malla curricular pastel!</h1>
-  </body>
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Malla Curricular Administración</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff4f8;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #a25d80;
+      margin-bottom: 10px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .semester {
+      background: #ffffff;
+      border: 2px solid #c9e6de;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 2px 2px 6px #e0e0e0;
+    }
+    .semester h2 {
+      background: #c9e6de;
+      margin: -10px -10px 10px;
+      padding: 8px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      color: #2a5a53;
+      text-align: center;
+    }
+    .course {
+      padding: 8px;
+      margin: 6px 0;
+      background: #fce4ec;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+    .course:hover {
+      background-color: #f8bbd0;
+    }
+    .course.ticked {
+      text-decoration: line-through;
+      opacity: 0.6;
+      background-color: #e0e0e0;
+    }
+    #progress-bar {
+      width: 100%;
+      background: #eee;
+      height: 25px;
+      border-radius: 12px;
+      margin: 20px auto;
+      overflow: hidden;
+      max-width: 600px;
+    }
+    #progress {
+      width: 0%;
+      height: 100%;
+      background: #a25d80;
+      color: #fff;
+      text-align: center;
+      line-height: 25px;
+      font-weight: bold;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌸 Malla Curricular - Administración 🌿</h1>
+  <div id="progress-bar"><div id="progress">0%</div></div>
+
+  <div class="container">
+    <div class="semester">
+      <h2>Semestre 1</h2>
+      <div class="course">Introducción a la Administración</div>
+      <div class="course">Fundamentos de Economía</div>
+      <div class="course">Fundamentos de Contabilidad</div>
+      <div class="course">Matemáticas</div>
+      <div class="course">Orientación I</div>
+      <div class="course">Autodesarrollo</div>
+      <div class="course">Comunicación Humana</div>
+    </div>
+    <div class="semester">
+      <h2>Semestre 2</h2>
+      <div class="course">Procesos Administrativos</div>
+      <div class="course">Contabilidad</div>
+      <div class="course">Legislación Organizacional I</div>
+      <div class="course">Estadísticas</div>
+      <div class="course">Orientación II</div>
+      <div class="course">Histórico Antropológico</div>
+    </div>
+    <div class="semester">
+      <h2>Semestre 3</h2>
+      <div class="course">Sistemas y Procedimientos Administrativos</div>
+      <div class="course">Comportamiento Organizacional</div>
+      <div class="course">Administración del Talento Humano I</div>
+      <div class="course">Legislación Organizacional II</div>
+      <div class="course">Epistemológica</div>
+      <div class="course">Práctica Profesional I</div>
+    </div>
+    <div class="semester">
+      <h2>Semestre 4</h2>
+      <div class="course">Administración del Talento Humano II</div>
+      <div class="course">Administración Financiera</div>
+      <div class="course">Fundamentos de Mercadeo</div>
+      <div class="course">Contabilidad Administrativa</div>
+      <div class="course">Práctica Profesional II</div>
+    </div>
+    <div class="semester">
+      <h2>Semestre 5</h2>
+      <div class="course">Análisis Financiero</div>
+      <div class="course">Administración de Operaciones</div>
+      <div class="course">Gestión Presupuestaria</div>
+      <div class="course">Administración Pública I</div>
+      <div class="course">Investigación de Mercados</div>
+      <div class="course">Electiva I</div>
+    </div>
+    <div class="semester">
+      <h2>Semestre 6</h2>
+      <div class="course">Administración de Proyectos</div>
+      <div class="course">Administración de Logística</div>
+      <div class="course">Economía de las Organizaciones</div>
+      <div class="course">Formulación de Proyectos</div>
+      <div class="course">Administración Pública II</div>
+      <div class="course">Electiva II</div>
+    </div>
+    <div class="semester">
+      <h2>Semestre 7</h2>
+      <div class="course">Evaluación de las Organizaciones</div>
+      <div class="course">Auditoría y Consultoría Administrativa</div>
+      <div class="course">Legislación Tributaria</div>
+      <div class="course">Seminario de Investigación Administrativa</div>
+      <div class="course">Práctica Profesional III</div>
+    </div>
+    <div class="semester">
+      <h2>Semestre 8</h2>
+      <div class="course">Servicio Comunitario</div>
+    </div>
+  </div>
+
+  <script>
+    const courses = document.querySelectorAll('.course');
+    const progress = document.getElementById('progress');
+    function updateProgress() {
+      const total = courses.length;
+      const done = document.querySelectorAll('.course.ticked').length;
+      const pct = Math.round(done / total * 100);
+      progress.style.width = pct + '%';
+      progress.textContent = pct + '%';
+    }
+    courses.forEach(c => {
+      c.addEventListener('click', () => {
+        c.classList.toggle('ticked');
+        updateProgress();
+      });
+    });
+  </script>
+</body>
 </html>
